@@ -15,11 +15,11 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_('Full name'), default='', max_length=255)
-    address = models.CharField(_('Address'), max_length=255)
-    city = models.CharField(_('City or Town'), default='', max_length=255)
+    address = models.CharField(_('Address'), blank=True, max_length=255)
+    city = models.CharField(_('City or Town'), default='', blank=True, max_length=255)
     state = models.CharField(_('State/Province'), default='', blank=True, max_length=255)
-    country_of_residence = CountryField(_('Country'), default='TT')
-    country_of_nationality = CountryField(_('Country of Nationality'), default='TT', blank=True,)
+    country_of_residence = CountryField(_('Country'), default='US', blank=True)
+    country_of_nationality = CountryField(_('Country of Nationality'), default='US', blank=True,)
     job = models.CharField(_('Job Title or Occupation'), default='', blank=True, max_length=255)
     organisation = models.CharField(_('Organisation'), default='', blank=True, max_length=255)
     tos = models.BooleanField(_('I have read and agree with the terms ' + 'of Service'), default=True)
