@@ -1,0 +1,8 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hi there,
+
+An account was made by user {{ user_display }} with your email address for the website {{ site_name }} ({{ site_domain }}). If this isn't you, you can just ignore this email.
+
+To confirm this is correct, go to {{ activate_url }}
+{% endblocktrans %}{% endautoescape %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you for joining us at {{ site_name }}!
+{{ site_domain }}{% endblocktrans %}
