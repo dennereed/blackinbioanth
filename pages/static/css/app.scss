@@ -224,7 +224,8 @@ hr {border-color: $light-gray;}
 
 #intro, #testimonials {
   padding: 40px 0 30px;
-  background: #5E9CD1;
+  background: $emperor;
+  //background: #5E9CD1;
 
   h3, p {color: $white;}
 
@@ -232,7 +233,7 @@ hr {border-color: $light-gray;}
 }
 
 #intro {
-	background: url('/#{$static}/img/bg.jpg') 100% no-repeat;
+	//background: url('/#{$static}/img/bg.jpg') 100% no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 
