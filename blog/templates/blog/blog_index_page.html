@@ -5,19 +5,21 @@
 	<div id="content" class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="medium-12 cell">
+          {% comment %}
 	    		<a href="{% url 'extended_feed' %}" target="_blank" class="button float-right" style="border-radius: 100%;"><i class="fa fa-rss" id="blog-rss"></i></a>
+        {% endcomment %}
 	    	</div>
-	    	
+
 	    	<div class="medium-12 cell">
 		    	{% if request.GET.tag|length %}
 		    		<h4>Showing posts tagged as {{ request.GET.tag|safe }} <a href=" {% pageurl self %} ">Show all</a></h4>
 		    	{% endif %}
 		    </div>
-	    	
+
 	    	<div id="blog_list" class="medium-8 cell" data-equalizer>
 	        	{% include "blog/includes/blog_list_item.html" %}
 	    	</div>
-	
+
 			{% if blogs.has_other_pages %}
 	    		<div class="medium-12 cell hide-for-print">
 	      			<ul class="pagination text-center" role="navigation" aria-label="Pagination">
@@ -28,9 +30,9 @@
 	          			{% else %}
 	          				<li class="pagination-previous disabled">Previous</li>
 	          			{% endif %}
-	          			
+
 	          			<li class="unavailable">Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>
-	          
+
 	          			{% if blogs.has_next %}
 	          				<li class="pagination-next">
 	            				<a href="?page={{ blogs.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&amp;{{ key }}={{ value }}{% endifnotequal %}{% endfor %}" aria-label="Next page">Next</a>
